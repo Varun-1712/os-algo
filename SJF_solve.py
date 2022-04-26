@@ -13,6 +13,7 @@ def exuction_of_SJF(process):
                 continue;
             process[i]["start_time"] = time_count
             time_count=time_count+process[i]["burst_time"]
+            process[i]["remaining_burst_time"]=0
             process[i]["end_time"]=time_count
             process[i]["waiting_time"]=process[i]["start_time"]-process[i]["arrival_time"]
             process[i]["turnaround_time"]=process[i]["end_time"]-process[i]["arrival_time"]

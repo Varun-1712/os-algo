@@ -20,12 +20,19 @@ class Scheduling_Algo:
                     "waiting_time": 0,
                     "end_time": 0,
                     "turnaround_time": 0,
+                    "prority": 0
                 }
             )
         # print(process)
         self.processes = process
         self.quantum_time = 0
         self.preemtive_or_not = 1
+
+    def add_process_with_priority(self, process_id,arrival_time, burst_time, priority):
+        self.processes[process_id-1]["arrical_time"] = arrival_time
+        self.processes[process_id-1]["burst_time"] = burst_time
+        self.processes[process_id-1]["remaining_burst_time"] = burst_time
+        self.processes[process_id-1]["prority"] = priority
 
     def add_process(self, process_id, arr_time, burst_time):
         self.processes[process_id-1]["arrival_time"] = arr_time
@@ -55,17 +62,20 @@ class Scheduling_Algo:
 
     def SRTF(self):
         exuction_of_SRTF(self)
+
+    def Priority(self):
+        exuction_of_Priority(self)
         
 
-    # def RR(self):
-    #     if self.preemtive_or_not == 0:
-    #         print("You have to set preemtive to `1` to use RR")
+    def RR(self):
+        if self.preemtive_or_not == 0:
+            print("You have to set preemtive to `1` to use RR")
 
-    #     else:
-    #         exuction_for_RR(self)
-    #         pass
+        else:
+            exuction_for_RR(self)
+            pass
 
-    #     pass
+    
 
 
         
